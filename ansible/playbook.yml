@@ -1,0 +1,31 @@
+---
+- hosts: prometheus
+  become: true
+
+  roles:
+    - cloudalchemy.prometheus
+    - cloudalchemy.node-exporter
+    - cloudalchemy.grafana
+
+  vars:
+    prometheus_targets:
+      node:
+        - targets:
+          - localhost:9100
+          - demo.cloudalchemy.org:9100
+          labels:
+            env: demosite
+    grafana_security:
+      admin_user: admin
+      admin_password: admin
+    grafana_dashboards:
+      - dashboard_id: 1860
+        revision_id: 11
+        datasource: 'Prometheus'
+    grafana_datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://localhost:9090
+        access: server
+        basicAuth: false
+        isDefault: true
