@@ -2,9 +2,9 @@
 
 ## Services installed:
 
-* Prometheus
-* node_exporter
-* Grafana
+* [Prometheus](https://github.com/prometheus/prometheus)
+* [node_exporter](https://github.com/prometheus/node_exporter)
+* [Grafana](https://grafana.com/grafana)
 
 ## Requirements:
 
